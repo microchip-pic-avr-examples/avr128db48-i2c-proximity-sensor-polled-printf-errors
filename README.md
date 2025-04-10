@@ -1,4 +1,4 @@
-<!-- Please do not change this logo with link -->
+<!-- MPAE-19443 Please do not change this logo with link -->
 
 <a target="_blank" href="https://www.microchip.com/" id="top-of-page">
    <picture>
@@ -8,7 +8,16 @@
    </picture>
 </a>
 
-# Update the title for avr128db48-i2c-proximity-sensor-polled-printf-errors here
+# AVR128DB48 I2C_Host Example Component for CNano Explorer: I2C Proximity Sensor (Polled, Printf-errors)
+
+The following is the output for this example. 
+Notice the delta 254 ms in the B column, of the time plot. The difference from 1 ms from the expected value, is simply due to the positioning of the cursor. 
+
+![alt text](images/avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB.png)
+
+The MCC Melody configuration is as shown in the following image. 
+
+![alt text](images/avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB_configuration.png)
 
 <!-- This is where the introduction to the example goes, including mentioning the peripherals used -->
 
