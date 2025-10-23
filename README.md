@@ -10,51 +10,61 @@
 
 # AVR128DB48 I2C_Host Example Component for CNano Explorer: I2C Proximity Sensor (Polled, Printf-errors)
 
-The following is the output for this example. 
-Notice the delta 254 ms in the B column, of the time plot. The difference from 1 ms from the expected value, is simply due to the positioning of the cursor. 
+The [I<sup>2</sup>C Proximity Sensor example](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EX.RUNNING.I2C.HOST.PROXIMITY.SENSOR&version=latest&redirect=true "I<sup>2</sup> Proximity Sensor example"
+), of the [MCC Melody I<sup>2</sup>C Example Component (for the Curiosity Nano Explorer)](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EXAMPLE.COMPONENT&version=latest&redirect=true "MCC Melody I<sup>2</sup>C Example Component for the Curiosity Nano Explorer"
+), is used here in the Polled implementation Printf with Error Checking Visualization Output selected. 
 
-![alt text](images/avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB.png)
+![alt text](images/avr128db48-i2c-proximity-sensor-polled-PrintfErr_intro.png)
 
-The MCC Melody configuration is as shown in the following image. 
-
-![alt text](images/avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB_configuration.png)
-
-<!-- This is where the introduction to the example goes, including mentioning the peripherals used -->
-
-## Related Documentation
-
-<!-- Any information about an application note or tech brief can be linked here. Use unbreakable links!
-     In addition a link to the device family landing page and relevant peripheral pages as well:
-     - [AN3381 - Brushless DC Fan Speed Control Using Temperature Input and Tachometer Feedback](https://microchip.com/00003381/)
-     - [PIC18F-Q10 Family Product Page](https://www.microchip.com/design-centers/8-bit/pic-mcus/device-selection/pic18f-q10-product-family) -->
-
-## Software Used
-
-<!-- All software used in this example must be listed here. Use unbreakable links!
-     - MPLAB® X IDE 5.30 or newer [(microchip.com/mplab/mplab-x-ide)](http://www.microchip.com/mplab/mplab-x-ide)
-     - MPLAB® XC8 2.10 or a newer compiler [(microchip.com/mplab/compilers)](http://www.microchip.com/mplab/compilers)
-     - MPLAB® Code Configurator (MCC) 3.95.0 or newer [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - MPLAB® Code Configurator (MCC) Device Libraries PIC10 / PIC12 / PIC16 / PIC18 MCUs [(microchip.com/mplab/mplab-code-configurator)](https://www.microchip.com/mplab/mplab-code-configurator)
-     - Microchip PIC18F-Q Series Device Support (1.4.109) or newer [(packs.download.microchip.com/)](https://packs.download.microchip.com/) -->
-
-- MPLAB® X IDE 6.25.0 or newer [(MPLAB® X IDE 6.25)](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide)
-- MPLAB® XC8 3.0.0 or newer compiler [(MPLAB® XC8 3.0)](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/xc8)
-
-## Hardware Used
-
-<!-- All hardware used in this example must be listed here. Use unbreakable links!
-     - PIC18F47Q10 Curiosity Nano [(DM182029)](https://www.microchip.com/Developmenttools/ProductDetails/DM182029)
-     - Curiosity Nano Base for Click boards™ [(AC164162)](https://www.microchip.com/Developmenttools/ProductDetails/AC164162)
-     - POT Click board™ [(MIKROE-3402)](https://www.mikroe.com/pot-click) -->
-
-## Setup
-
-<!-- Explain how to connect hardware and set up software. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
+This example demonstrates how to read the value of the VCNL4200 proximity sensor on the Curiosity Nano Explore. Every 250 ms, an LED and a Debug I/O pin are toggled and a printf message is sent to the  [MPLAB® Data Visualizer](https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer "MPLAB® Data Visualizer").  
 
 ## Operation
 
-<!-- Explain how to operate the example. Depending on complexity, step-by-step instructions and/or tables and/or images can be used -->
+The below image of the MPLAB Data Visualizer shows the application running, where the proximity value is displayed on the Data Visualizer terminal every 250 ms and a Debug I/O is toggled.
 
-## Summary
+![alt text](images\avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB.png)
+To run the example, follow the steps in the Data Visualizer Setup section of the I2C_Host Example Component, i.e.: 
 
-<!-- Summarize what the example has shown -->
+- [Data Visualizer Debug GPIO Setup](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EX.DV.DEBUG.IO&version=latest&redirect=true)
+- [Data Visualizer Setup for Terminal](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EX.DV.TERMINAL&version=latest&redirect=true) 
+
+## Setup
+The following is a block diagram view of the application, as seen in the MPLAB Code Configurator (MCC) [MCC Melody Builder](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=MCC.MELODY.BUILDER&version=latest&redirect=true "MCC Melody Builder"). On the right hand side, the completed TODO list of the I<sup>2</sup>C Host Example Component represents the MCC Melody configuration of the application.
+
+![alt text](images\avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB_configuration.png)
+
+![alt text](images\avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB_configuration_pins.png)
+
+
+## MCC Melody Example Components
+Example Components integrate learning material directly into the MCC. This allows the users to conveniently place the configuration instructions side-by-side to the components they are configuring. For more information, refer to the [MCC Melody Example Components](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=MCC.MELODY.EXAMPLES&version=latest&redirect=true) introduction. 
+
+
+## Related Documentation
+
+- [MCC Melody I<sup>2</sup>C Example Component (for the Curiosity Nano Explorer)](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EXAMPLE.COMPONENT&version=latest&redirect=true "MCC Melody I<sup>2</sup>C Example Component for the Curiosity Nano Explorer")
+- [MCC Melody Design Patterns for Control Flow](https://onlinedocs.microchip.com/g/GUID-7CE1AEE9-2487-4E7B-B26B-93A577BA154E "MCC Melody Design Patterns for Control Flow")
+
+- [Curiosity Nano Explorer User Guide](https://ww1.microchip.com/downloads/aemDocuments/documents/MCU08/ProductDocuments/UserGuides/CNANO-Explorer-UserGuide-DS50003716.pdf "Curiosity Nano Explorer Users Guide")
+
+- [AVR128DB48 Data Sheet](https://ww1.microchip.com/downloads/en/DeviceDoc/AVR128DB28-32-48-64-DataSheet-DS40002247A.pdf "AVR128DB48 Data Sheet")
+
+## Software Used
+- [MPLAB® X IDE](https://www.microchip.com/en-us/development-tools-tools-and-software/mplab-x-ide) v6.25 or newer 
+- [MPLAB® XC8](https://www.microchip.com/en-us/tools-resources/develop/mplab-xc-compilers/xc8) v3.00 or newer
+
+- [MPLAB® Code Configurator](https://www.microchip.com/en-us/tools-resources/configure/mplab-code-configurator) (MCC) Plug-in Version v5.6.2 or newer (*Tools>Plugins>Installed*, search: "MCC")
+- [MPLAB® Data Visualizer](https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer) Plug-in Version v1.4.1926 or newer (*Tools>Plugins>Installed*, search: "Data Visualizer")
+- MCC Melody I2C_Host Example Component for the Curiosity Nano Explorer v1.0.0 or newer
+- MCC Core v5.8.2 or newer 
+- Single Page Application (SPA) Host v1.0.0 or newer
+- MCC Melody Core v2.9.1 or newer
+
+Open the MCC Content Manager ![CM_icon](images/Icon-MPLAB-CM24.png) to verify the MCC Core and MCC Melody Core versions. 
+
+![alt text](images/MCC_Core_ContentLibrary_Versions_SPA.png) 
+
+## Hardware Used
+- AVR128DB48 Curiosity Nano [(EV35L43A)](https://www.microchip.com/en-us/development-tool/EV35L43A)
+- Curiosity Nano Explorer [(EV58G97A)](https://www.microchip.com/en-us/development-tool/EV58G97A)
+

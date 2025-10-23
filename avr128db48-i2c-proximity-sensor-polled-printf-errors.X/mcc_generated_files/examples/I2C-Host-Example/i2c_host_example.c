@@ -25,7 +25,7 @@
  * 
  * @ingroup i2c_host example
  * 
- * @version I2C_HOST EXAMPLE Example Version 1.0.0
+ * @version I2C_HOST EXAMPLE Example Version 1.0.1
  *
  * @brief Generated file for
  *        Example:           4. I2C Proximity Sensor 
@@ -40,17 +40,16 @@
 // Note:  VCNL4200 - High Sensitivity Long Distance Proximity and Ambient Light Sensor With I2C Interface
 //        Reference to the VCNL4200 data sheet:  https://www.vishay.com/docs/84430/vcnl4200.pdf
 //        The VCNL4200 command codes are located in Table 1 (page 9) of the VCNL4200 data sheet
-#define PROXIMITY_I2C_ADDRESS  ((uint8_t)0x51)
-#define PROXIMITY_DATA ((uint8_t)0x08)
-
-extern void DELAY_milliseconds(uint16_t milliseconds);  
+#define PROXIMITY_I2C_ADDRESS ((uint8_t) 0x51)
+#define PROXIMITY_DATA ((uint8_t) 0x08)
 
 uint8_t VCNL4200_Initialize(void);
 uint8_t VCNL4200_ProximityRead(uint16_t* proximityValue);
-const uint8_t* I2CErrorToString(uint8_t error);
+extern void DELAY_milliseconds(uint16_t milliseconds);  
 
-uint16_t proximityValue;           // proximity sensor (VCNL4200) result
-uint8_t errorState = I2C_ERROR_NONE;
+static i2c_host_error_t errorState = I2C_ERROR_NONE;
+const uint8_t* I2CErrorToString(uint8_t error);
+static uint16_t proximityValue;           // proximity sensor (VCNL4200) result
 
 uint8_t VCNL4200_ProximityRead(uint16_t* proximityValue)
 {    
@@ -61,12 +60,17 @@ uint8_t VCNL4200_ProximityRead(uint16_t* proximityValue)
     } proximityResponse;    
     uint8_t proximityData = PROXIMITY_DATA;  
     
-    uint8_t waitCounter = 100;
     if (I2C_Host.WriteRead(PROXIMITY_I2C_ADDRESS, &proximityData, sizeof(proximityData), proximityResponse.bytes, sizeof(proximityResponse))) 
     {
-        while (I2C_Host.IsBusy() && waitCounter--) 
+        uint8_t waitCounter = 100;
+        while(!I2C_Host.IsBusy())
+        {
+            //Wait here until I2C bus can start transmitting
+        }
+        while (I2C_Host.IsBusy() && (waitCounter > 0U)) 
         {
             I2C_Host.Tasks();
+            waitCounter--;             
         }
         *proximityValue = proximityResponse.value;
     }
@@ -82,19 +86,26 @@ uint8_t VCNL4200_ProximityRead(uint16_t* proximityValue)
 
 const uint8_t* I2CErrorToString(uint8_t error)
 {
+    const uint8_t* errorString;
     switch (error)
     {
         case I2C_ERROR_NONE:
-            return "I2C_ERROR_NONE";
+            errorString = "I2C_ERROR_NONE";
+            break;
         case I2C_ERROR_ADDR_NACK:
-            return "I2C_ERROR_ADDR_NACK";
+            errorString = "I2C_ERROR_ADDR_NACK";
+            break;
         case I2C_ERROR_DATA_NACK:
-            return "I2C_ERROR_DATA_NACK";
+            errorString = "I2C_ERROR_DATA_NACK";
+            break;
         case I2C_ERROR_BUS_COLLISION:
-            return "I2C_ERROR_BUS_COLLISION";
+            errorString = "I2C_ERROR_BUS_COLLISION";
+            break;
         default:
-            return "UNKNOWN_ERROR";
+            errorString = "UNKNOWN_ERROR";
+            break;
     }
+    return errorString;
 }
 
 uint8_t VCNL4200_Initialize(void)
@@ -105,17 +116,28 @@ uint8_t VCNL4200_Initialize(void)
 
     if (I2C_Host.Write(PROXIMITY_I2C_ADDRESS, initConfigOne, sizeof(initConfigOne))) 
     {
-        while (I2C_Host.IsBusy() && waitCounter--) 
+        while(!I2C_Host.IsBusy())
+        {
+            //Wait here until I2C bus can start transmitting
+        }
+        while (I2C_Host.IsBusy() && (waitCounter > 0U)) 
         {
             I2C_Host.Tasks();
+            waitCounter--;             
         }
     } 
+ 
     waitCounter = 100;
     if (I2C_Host.Write(PROXIMITY_I2C_ADDRESS, initConfigTwo, sizeof(initConfigTwo))) 
     {
-        while (I2C_Host.IsBusy() && waitCounter--) 
+        while(!I2C_Host.IsBusy())
+        {
+            //Wait here until I2C bus can start transmitting 
+        }
+        while (I2C_Host.IsBusy() && (waitCounter > 0U)) 
         {
             I2C_Host.Tasks();
+            waitCounter--;             
         }
     } 
     errorState = I2C_Host.ErrorGet();
@@ -124,9 +146,11 @@ uint8_t VCNL4200_Initialize(void)
 
 int main(void)
 {
-    SYSTEM_Initialize();                                                
+    SYSTEM_Initialize();   
+    (int) printf("Example: 4. I2C Proximity Sensor, Implementation: Polled, Visualization: Printf with error handling\r\n");
+    (int) printf("MCU Device family: AVR \r\n\r\n");
     errorState = VCNL4200_Initialize();     // Initializes the proximity sensor (VCNL4200) over the I2C bus
-    printf("I2C proximity sensor initialize status: %d - %s\r\n", errorState, I2CErrorToString(errorState));
+    (int) printf("I2C proximity sensor initialize status: %d - %s\r\n", errorState, I2CErrorToString(errorState));
     
     while(1)
     {
@@ -134,9 +158,9 @@ int main(void)
         errorState = VCNL4200_ProximityRead(&proximityValue);
         if (errorState != I2C_ERROR_NONE) 
         {
-            printf("The proximity sensor error: %d - %s\r\n", errorState, I2CErrorToString(errorState));
+            (int) printf("The proximity sensor error: %d - %s\r\n", errorState, I2CErrorToString(errorState));
         }
-        printf("The proximity value is: %d\r\n", proximityValue); 
+        (int) printf("The proximity value is: %d\r\n", proximityValue); 
         IO_LED_Toggle();
         IO_Debug_Toggle();
     }    

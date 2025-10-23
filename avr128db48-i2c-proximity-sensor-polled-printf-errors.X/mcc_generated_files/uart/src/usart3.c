@@ -7,7 +7,7 @@
  * 
  * @brief This is the generated driver implementation file for the USART3 driver using the  Universal Synchronous and Asynchronous serial Receiver and Transmitter (USART) module. 
  *
- * @version USART3 Driver Version 2.1.1
+ * @version USART3 Driver Version 2.1.2
 */
 
 /*
@@ -256,7 +256,9 @@ bool USART3_IsTxReady(void)
 
 bool USART3_IsTxDone(void)
 {
-    return (bool)(USART3.STATUS & USART_TXCIF_bm);
+    bool usart3TxCompleteStatus = false;
+    usart3TxCompleteStatus = (bool)(USART3.STATUS & USART_TXCIF_bm);
+    return usart3TxCompleteStatus;
 }
 
 size_t USART3_ErrorGet(void)
