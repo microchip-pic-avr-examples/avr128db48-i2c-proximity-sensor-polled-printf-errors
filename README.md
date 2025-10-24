@@ -12,24 +12,25 @@
 
 The [I<sup>2</sup>C Proximity Sensor example](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EX.RUNNING.I2C.HOST.PROXIMITY.SENSOR&version=latest&redirect=true "I<sup>2</sup> Proximity Sensor example"
 ), of the [MCC Melody I<sup>2</sup>C Example Component (for the Curiosity Nano Explorer)](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EXAMPLE.COMPONENT&version=latest&redirect=true "MCC Melody I<sup>2</sup>C Example Component for the Curiosity Nano Explorer"
-), is used here in the Polled implementation Printf with Error Checking Visualization Output selected. 
+), is used here in the Polled implementation Printf with the Error Checking visualization. 
 
 ![alt text](images/avr128db48-i2c-proximity-sensor-polled-PrintfErr_intro.png)
 
-This example demonstrates how to read the value of the VCNL4200 proximity sensor on the Curiosity Nano Explore. Every 250 ms, an LED and a Debug I/O pin are toggled and a printf message is sent to the  [MPLAB® Data Visualizer](https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer "MPLAB® Data Visualizer").  
+This example demonstrates how to read the value of the VCNL4200 proximity sensor on the Curiosity Nano Explorer. Every 250 ms, an LED and a Debug I/O pin are toggled and a printf message is sent to the  [MPLAB® Data Visualizer](https://www.microchip.com/en-us/tools-resources/debug/mplab-data-visualizer "MPLAB® Data Visualizer").  
 
 ## Operation
 
 The below image of the MPLAB Data Visualizer shows the application running, where the proximity value is displayed on the Data Visualizer terminal every 250 ms and a Debug I/O is toggled.
 
 ![alt text](images\avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB.png)
-To run the example, follow the steps in the Data Visualizer Setup section of the I2C_Host Example Component, i.e.: 
+
+To run the example, follow the steps in the Data Visualizer Setup section of the I2C_Host Example Component: 
 
 - [Data Visualizer Debug GPIO Setup](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EX.DV.DEBUG.IO&version=latest&redirect=true)
 - [Data Visualizer Setup for Terminal](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EX.DV.TERMINAL&version=latest&redirect=true) 
 
 ## Setup
-The following is a block diagram view of the application, as seen in the MPLAB Code Configurator (MCC) [MCC Melody Builder](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=MCC.MELODY.BUILDER&version=latest&redirect=true "MCC Melody Builder"). On the right hand side, the completed TODO list of the I<sup>2</sup>C Host Example Component represents the MCC Melody configuration of the application.
+The following is a block diagram view of the application, as seen in the MPLAB Code Configurator (MCC) Melody [MCC Melody Builder](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=MCC.MELODY.BUILDER&version=latest&redirect=true "MCC Melody Builder"). On the right hand side, the completed TODO list of the I<sup>2</sup>C Host Example Component represents the MCC Melody configuration of the application.
 
 ![alt text](images\avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB_configuration.png)
 
