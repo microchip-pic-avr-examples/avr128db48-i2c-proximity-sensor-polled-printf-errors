@@ -8,7 +8,7 @@
    </picture>
 </a>
 
-# AVR128DB48 I2C_Host Example Component for CNano Explorer: I2C Proximity Sensor (Polled, Printf-errors)
+# AVR128DB48 I2C_Host Example Component for CNano Explorer: I2C Proximity Sensor (Polled, Printf-Errors)
 
 The [I<sup>2</sup>C Proximity Sensor example](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EX.RUNNING.I2C.HOST.PROXIMITY.SENSOR&version=latest&redirect=true "I<sup>2</sup> Proximity Sensor example"
 ), of the [MCC Melody I<sup>2</sup>C Example Component (for the Curiosity Nano Explorer)](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EXAMPLE.COMPONENT&version=latest&redirect=true "MCC Melody I<sup>2</sup>C Example Component for the Curiosity Nano Explorer"
@@ -30,7 +30,7 @@ To run the example, follow the steps in the Data Visualizer Setup section of the
 - [Data Visualizer Setup for Terminal](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=I2C.HOST.EX.DV.TERMINAL&version=latest&redirect=true) 
 
 ## Setup
-The following is a block diagram view of the application, as seen in the MPLAB Code Configurator (MCC) Melody [MCC Melody Builder](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=MCC.MELODY.BUILDER&version=latest&redirect=true "MCC Melody Builder"). On the right hand side, the completed TODO list of the I<sup>2</sup>C Host Example Component represents the MCC Melody configuration of the application.
+The following is a block diagram view of the application, as seen in the MPLAB Code Configurator [(MCC) Melody Builder](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=MCC.MELODY.BUILDER&version=latest&redirect=true "MCC Melody Builder"). On the right hand side, the completed TODO list of the I<sup>2</sup>C Host Example Component represents the MCC Melody configuration of the application.
 
 ![alt text](images\avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB_configuration.png)
 
