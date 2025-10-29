@@ -22,7 +22,7 @@ This example demonstrates how to read the value of the VCNL4200 proximity sensor
 
 The below image of the MPLAB Data Visualizer shows the application running, where the proximity value is displayed on the Data Visualizer terminal every 250 ms and a Debug I/O is toggled.
 
-![alt text](images\avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB.png)
+![alt text](images/avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB.png)
 
 To run the example, follow the steps in the Data Visualizer Setup section of the I2C_Host Example Component: 
 
@@ -32,9 +32,9 @@ To run the example, follow the steps in the Data Visualizer Setup section of the
 ## Setup
 The following is a block diagram view of the application, as seen in the MPLAB Code Configurator [(MCC) Melody Builder](https://onlinedocs.microchip.com/v2/keyword-lookup?keyword=MCC.MELODY.BUILDER&version=latest&redirect=true "MCC Melody Builder"). On the right hand side, the completed TODO list of the I<sup>2</sup>C Host Example Component represents the MCC Melody configuration of the application.
 
-![alt text](images\avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB_configuration.png)
+![alt text](images/avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB_configuration.png)
 
-![alt text](images\avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB_configuration_pins.png)
+![alt text](images/avr128db48-i2c-proximity-sensor-polled-printfErrors_avrDB_configuration_pins.png)
 
 
 ## MCC Melody Example Components
